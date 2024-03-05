@@ -4,11 +4,14 @@ import {GlobalStyles} from '../../Constants/styles';
 import {getFormattedDate} from '../../utils/date';
 import {useNavigation} from '@react-navigation/native';
 
-export default function ExpenseItem({description, amount, date}) {
+export default function ExpenseItem({description, amount, date, id}) {
   const navigation = useNavigation();
   function expensePressHandler() {
     console.log('expensePressHandler item');
-    navigation.navigate('ManageExpense');
+    navigation.navigate('ManageExpense', {
+      expenseId: id,
+    });
+    console.log(id, 'id ');
   }
   return (
     <Pressable
@@ -59,7 +62,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 4,
-    minWidth: 90,
+    minWidth: 80,
     boxSizing: 'border-box',
   },
   amount: {

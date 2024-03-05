@@ -1,9 +1,6 @@
 import {Pressable, StyleSheet, Text, View} from 'react-native';
 
-export default function IconButton() {
-  function onPress() {
-    console.log('onpress is called');
-  }
+export default function IconButton({onPress}) {
   return (
     <Pressable
       onPress={onPress}
