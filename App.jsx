@@ -1,5 +1,5 @@
 import React from 'react';
-import {Modal, StatusBar} from 'react-native';
+import {StatusBar} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
@@ -8,6 +8,7 @@ import RecentExpenses from './screens/RecentExpenses';
 import AllExpenses from './screens/AllExpenses';
 import ManageExpense from './screens/ManageExpense';
 import IconButton from './UI/IconButton';
+import ExpenseContextProvider from './store/expenses-context';
 
 const Stack = createNativeStackNavigator();
 const BottomTabs = createBottomTabNavigator();
@@ -43,7 +44,7 @@ function ExpenseOverview() {
 }
 function App() {
   return (
-    <>
+    <ExpenseContextProvider>
       <StatusBar />
       <NavigationContainer>
         <Stack.Navigator
@@ -63,7 +64,7 @@ function App() {
           />
         </Stack.Navigator>
       </NavigationContainer>
-    </>
+    </ExpenseContextProvider>
   );
 }
 

@@ -12,7 +12,7 @@ const Dummy_Expenses = [
     id: '0',
     description: 'A pair of shoes',
     amount: 10.99,
-    date: new Date('2021-12-23'),
+    date: new Date('2024-03-02'),
   },
 
   {
@@ -73,25 +73,25 @@ const Dummy_Expenses = [
     id: '10',
     description: 'Another book',
     amount: 20,
-    date: new Date('2022-02-23'),
+    date: new Date('2024-03-01'),
   },
   {
     id: '11',
     description: 'Another book',
     amount: 40,
-    date: new Date('2022-02-23'),
+    date: new Date('2024-02-27'),
   },
   {
     id: '12',
     description: 'Another book',
     amount: 20,
-    date: new Date('2022-02-23'),
+    date: new Date('2024-02-29'),
   },
   {
     id: '13',
     description: 'Group of  books',
     amount: 90,
-    date: new Date('2022-02-23'),
+    date: new Date('2024-03-03'),
   },
 ];
 
@@ -120,8 +120,7 @@ function expenseReducer(state, action) {
 }
 function ExpenseContextProvider({children}) {
   const [expensesState, dispatch] = useReducer(expenseReducer, Dummy_Expenses);
-
-  function addExpense({expenseData}) {
+  function addExpense(expenseData) {
     dispatch({type: 'ADD', payload: expenseData});
   }
   function deleteExpense(id) {

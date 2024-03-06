@@ -3,9 +3,12 @@ import ExpensesOutput from '../components/ExpensesOutput/ExpensesOutput';
 import {ExpensesContext} from '../store/expenses-context';
 function AllExpenses() {
   const expensesCtx = useContext(ExpensesContext);
-  console.log(expensesCtx, 'faisalllll');
   return (
-    <ExpensesOutput expensesPeriod="Total" expenses={expensesCtx.expenses} />
+    <ExpensesOutput
+      expenses={expensesCtx.expenses}
+      expensesPeriod="Total"
+      fallbackText="No Expenses"
+    />
   );
 }
 export default AllExpenses;
